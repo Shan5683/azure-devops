@@ -14,7 +14,9 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: terraform init
+        working-directory: ./Terraform
         run: terraform init
 
       - name: terraform validate
+        working-directory: ./Terraform
         run: terraform validate
