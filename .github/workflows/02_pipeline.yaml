@@ -3,6 +3,10 @@ name: dev-pipeline
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   terraform-int:
     runs-on: ubuntu-latest
@@ -10,6 +14,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{1ce2f246-284b-40c9-91b5-8c16cfbfc74a}}
+          tenant-id: ${{ af7e21cd-53c1-4fd2-9bd0-4846ae4a2b00}}
+          subscription-id: ${{5ffa48e3-3f73-4738-8422-bb81b02e3173}}
 
       - name: Terraform setup
         uses: hashicorp/setup-terraform@v3
