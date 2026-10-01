@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: terraform setup
-        uses: hashicorp/setup-terraform@v2  
+        uses: hashicorp/setup-terraform@v3  
         with:
           terraform_version: "1.7.6"
       - name: terraform init
