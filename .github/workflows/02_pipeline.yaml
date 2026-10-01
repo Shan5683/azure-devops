@@ -1,21 +1,22 @@
 name: dev-pipeline
 
 on:
-  workflow_dispatch:    # to trigger workflow manually
+  workflow_dispatch:
 
 jobs:
   terraform-int:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v5
+
       - name: terraform setup
-        uses: hashicorp/setup-terraform@v3  
+        uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: "1.7.6"
+
       - name: terraform init
         run: terraform init
+
       - name: terraform validate
         run: terraform validate
-      
-    
- 
