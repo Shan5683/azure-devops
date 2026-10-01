@@ -14,14 +14,10 @@ jobs:
       - name: Terraform setup
         uses: hashicorp/setup-terraform@v3
 
-      - name: Check repository files
-        run: |
-          pwd
-          ls -la
-          find . -maxdepth 4 -type f -name "*.tf"
-
-      - name: Terraform init
+      - name: Terraform init  
+        working-directory: ./dev
         run: terraform init
 
       - name: Terraform validate
+        working-directory: ./dev
         run: terraform validate
