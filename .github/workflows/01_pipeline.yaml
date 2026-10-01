@@ -1,0 +1,17 @@
+name: test-pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  printname:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: print name
+        run: echo "Hello, World and welcome to pipeline learning !"
