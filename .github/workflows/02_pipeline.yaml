@@ -8,15 +8,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout code
+        uses: actions/checkout@v5
 
-      - name: terraform setup
+      - name: Terraform setup
         uses: hashicorp/setup-terraform@v3
 
-      - name: terraform init
-        working-directory: ./Terraform
+      - name: Check repository files
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 4 -type f -name "*.tf"
+
+      - name: Terraform init
         run: terraform init
 
-      - name: terraform validate
-        working-directory: ./Terraform
+      - name: Terraform validate
         run: terraform validate
