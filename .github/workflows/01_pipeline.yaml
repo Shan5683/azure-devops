@@ -15,4 +15,3 @@ jobs:
       - uses: actions/checkout@v5
       - name: print name
         run: echo "Hello, World and welcome to pipeline learning !"
-.bghgh
