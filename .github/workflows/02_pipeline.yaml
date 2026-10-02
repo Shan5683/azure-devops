@@ -24,7 +24,10 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
+    env:
+      TF_ENV: ${{ github.event.inputs.environment || 'dev' }}
 
+      environment: ${{ github.event.inputs.environment || 'dev' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
