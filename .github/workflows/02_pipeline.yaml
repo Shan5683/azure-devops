@@ -1,15 +1,29 @@
 name: dev-pipeline
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - qa
+          - prod
 
 permissions:
   id-token: write
   contents: read
 
 jobs:
-  terraform-int:
+  terraform:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
 
     steps:
       - name: Checkout code
