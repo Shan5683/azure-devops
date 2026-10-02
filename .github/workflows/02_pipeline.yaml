@@ -57,3 +57,8 @@ jobs:
       - name: Terraform apply
         working-directory: ./terraform  
         run: terraform apply -auto-approve tfplan
+
+      - name: Terraform destroy
+        if: ${{ github.event.inputs.environment == 'dev' }}
+        working-directory: ./terraform
+        run: terraform destroy -auto-approve
