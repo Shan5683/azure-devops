@@ -9,12 +9,12 @@ on:
       environment:
         description: 'Environment to deploy to'
         required: true
-        # default: 'dev'
+        default: 'qa'
         type: choice
         options:
           - dev
           - qa
-          - prod
+          - Prod
 
 permissions:
   id-token: write
