@@ -28,7 +28,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-
+      - name: Show environment
+        run: |
+          echo "Running Terraform for: $TF_ENV"
       - name: Azure Login
         uses: azure/login@v2
         with:
